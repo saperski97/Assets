@@ -43,7 +43,7 @@ WITH pivoted_data AS (
     FROM {{ ref('stg_wydatki_przychody') }}
 )
 
-SELECT Data, Kategoria, ROUND(SUM(Wartosc),2) AS Wartosc
+SELECT Data, Kategoria, SUM(Wartosc) AS Wartosc
 FROM pivoted_data
 UNPIVOT (Wartosc FOR Kategoria IN (Jedzenie,Alkohol,Transport,Czynsz,Kredyt,
                                     Wyjscia,Wyjazdy,Nauka,Prezenty,Chemia_i_art_domowe,

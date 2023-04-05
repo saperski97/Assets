@@ -42,7 +42,7 @@ WITH pivoted_data AS (
         CAST(REPLACE(Bilans,',','.') AS FLOAT64) AS Bilans
     FROM {{ ref('stg_wydatki_przychody_archive') }})
 
-SELECT Data, Kategoria, ROUND(SUM(Wartosc),2) AS Wartosc
+SELECT Data, Kategoria, SUM(Wartosc) AS Wartosc
 FROM pivoted_data
 UNPIVOT (Wartosc FOR Kategoria IN (Jedzenie,Transport,Czynsz,Wyjscia,ArtDomowe,
                                     Alkohol,Kosmetyki,Nauka,Wyjazdy,Prezenty,
