@@ -19,96 +19,34 @@ WITH pivoted_data AS (
                 AS INT),
             1
         ) AS Data,
-        CASE SPLIT(LTRIM(Jedzenie),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Jedzenie),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Jedzenie,
-        CASE SPLIT(LTRIM(Alkohol),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Alkohol),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Alkohol,
-        CASE SPLIT(LTRIM(Transport),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Transport),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Transport,
-        CASE SPLIT(LTRIM(Czynsz),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Czynsz),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Czynsz,
-        CASE SPLIT(LTRIM(Kredyt),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Kredyt),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Kredyt,
-        CASE SPLIT(LTRIM(Wyjscia),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Wyjscia),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Wyjscia,
-        CASE SPLIT(LTRIM(Wyjazdy),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Wyjazdy),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Wyjazdy,
-        CASE SPLIT(LTRIM(Nauka),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Nauka),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Nauka,
-        CASE SPLIT(LTRIM(Prezenty),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Prezenty),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Prezenty,
-        CASE SPLIT(LTRIM(Chemia_i_art_domowe),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Chemia_i_art_domowe),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Chemia_i_art_domowe,
-        CASE SPLIT(LTRIM(Kosmetyki),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Kosmetyki),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Kosmetyki,
-        CASE SPLIT(LTRIM(Ksiazki),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Ksiazki),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Ksiazki,
-        CASE SPLIT(LTRIM(Ubrania_i_obuwie),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Ubrania_i_obuwie),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Ubrania_i_obuwie,
-        CASE SPLIT(LTRIM(Zdrowie),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Zdrowie),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Zdrowie,
-        CASE SPLIT(LTRIM(Wesele),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Wesele),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Wesele,
-        CASE SPLIT(LTRIM(Wystroj_mieszkania),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Wystroj_mieszkania),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Wystroj_mieszkania,
-        CASE SPLIT(LTRIM(Pozostale),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Pozostale),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Pozostale,
-        CASE SPLIT(LTRIM(Rozliczenia),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Rozliczenia),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Rozliczenia,
-        CASE SPLIT(LTRIM(Wydatki),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Wydatki),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Wydatki,
-        CASE SPLIT(LTRIM(Przychody),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Przychody),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Przychody,
-        CASE SPLIT(LTRIM(Bilans),' ')[offset(0)]
-            WHEN '-' THEN 0
-            ELSE CAST(REPLACE(REPLACE(REPLACE(SPLIT(LTRIM(Bilans),' ')[offset(0)],',','.'),'(',''),')','') AS FLOAT64) END
-        AS Bilans
+        CAST(REPLACE(Jedzenie,',','.') AS FLOAT64) AS Jedzenie,
+        CAST(REPLACE(Alkohol,',','.') AS FLOAT64) AS Alkohol,
+        CAST(REPLACE(Transport,',','.') AS FLOAT64) AS Transport,
+        CAST(REPLACE(Czynsz,',','.') AS FLOAT64) AS Czynsz,
+        CAST(REPLACE(Kredyt,',','.') AS FLOAT64) AS Kredyt,    
+        CAST(REPLACE(Wyjscia,',','.') AS FLOAT64) AS Wyjscia,
+        CAST(REPLACE(Wyjazdy,',','.') AS FLOAT64) AS Wyjazdy,
+        CAST(REPLACE(Nauka,',','.') AS FLOAT64) AS Nauka,
+        CAST(REPLACE(Prezenty,',','.') AS FLOAT64) AS Prezenty,
+        CAST(REPLACE(Chemia_i_art_domowe,',','.') AS FLOAT64) AS Chemia_i_art_domowe,
+        CAST(REPLACE(Kosmetyki,',','.') AS FLOAT64) AS Kosmetyki,
+        CAST(REPLACE(Ksiazki,',','.') AS FLOAT64) AS Ksiazki,
+        CAST(REPLACE(Ubrania_i_obuwie,',','.') AS FLOAT64) AS Ubrania_i_obuwie,
+        CAST(REPLACE(Zdrowie,',','.') AS FLOAT64) AS Zdrowie,
+        CAST(REPLACE(Wesele,',','.') AS FLOAT64) AS Wesele,
+        CAST(REPLACE(Wystroj_mieszkania,',','.') AS FLOAT64) AS Wystroj_mieszkania,
+        CAST(REPLACE(Pozostale,',','.') AS FLOAT64) AS Pozostale,
+        CAST(REPLACE(Rozliczenia,',','.') AS FLOAT64) AS Rozliczenia,
+        CAST(REPLACE(Wydatki,',','.') AS FLOAT64) AS Wydatki,
+        CAST(REPLACE(Przychody,',','.') AS FLOAT64) AS Przychody,
+        CAST(REPLACE(Bilans,',','.') AS FLOAT64) AS Bilans
     FROM {{ ref('stg_wydatki_przychody') }}
 )
 
-SELECT *
+SELECT Data, Kategoria, ROUND(SUM(Wartosc),2) AS Wartosc
 FROM pivoted_data
 UNPIVOT (Wartosc FOR Kategoria IN (Jedzenie,Alkohol,Transport,Czynsz,Kredyt,
                                     Wyjscia,Wyjazdy,Nauka,Prezenty,Chemia_i_art_domowe,
                                     Kosmetyki,Ksiazki,Ubrania_i_obuwie,Zdrowie,Wesele,
                                     Wystroj_mieszkania,Pozostale,Rozliczenia,Wydatki,Przychody,Bilans))
+GROUP BY Data, Kategoria
