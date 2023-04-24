@@ -44,8 +44,8 @@ WITH pivoted_data AS (
 
 SELECT Data, Kategoria, SUM(Wartosc) AS Wartosc
 FROM pivoted_data
-UNPIVOT (Wartosc FOR Kategoria IN (Jedzenie,Transport,Czynsz,Wyjscia,ArtDomowe,
+UNPIVOT (Wartosc FOR Kategoria IN (Jedzenie,Transport,Czynsz,Wyjscia,Chemia_i_art_domowe,
                                     Alkohol,Kosmetyki,Nauka,Wyjazdy,Prezenty,
-                                    Ubrania,Ksiazki,Zdrowie,Pozostale,WystrojMieszkania,
+                                    Ubrania_i_obuwie,Ksiazki,Zdrowie,Pozostale,Wystroj_mieszkania,
                                     Abonamenty,Kredyt,Rozliczenia,Wydatki,Przychody,Bilans))
 GROUP BY Data, Kategoria
